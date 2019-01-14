@@ -1,1 +1,1 @@
-web: node MyBOT.js
+web: node index.js
