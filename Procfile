@@ -1,1 +1,1 @@
-C:\Users\Liuskor\Desktop\MyBOT>node mybot.js Harley Quinn
+web: node index.js
