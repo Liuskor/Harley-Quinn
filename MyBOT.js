@@ -9,9 +9,13 @@ client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
 
-client.on("ready", () => {
- console.log("Connected");
- client.user.setPresence({
+
+
+
+client.on('ready', () => {
+client.user.setActivity('bot en heroku', {type: 'WATCHING'});
+console.log('Listo!');
+client.user.setPresence({
         status: "online",
         game: {
             name: "Asylum",
@@ -48,6 +52,12 @@ client.on("guildMemberRemove", (member) => {
 
 
 client.on("message", (message) => {
+  if (message.content.startsWith(prefix+"ping")) {
+         let ping = Math.floor(message.client.ping);
+         message.channel.send(':ping_pong: `'+ping+' ms.` desde heroku.');
+
+     }
+
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
